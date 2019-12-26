@@ -3,8 +3,7 @@ package com.ws.experiment.spring.basic;
 /**
  * User
  *
- * @author Eric
- * @create 2019-12-25_19:12
+ * @author Eric at 2019-12-25_19:12
  */
 public class User {
     private String name;
