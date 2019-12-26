@@ -22,7 +22,7 @@ public class Teacher {
 //    @Qualifier("title")
     private String title;
 
-    public String getId() {
+    String getId() {
         return id;
     }
 
@@ -32,7 +32,7 @@ public class Teacher {
         this.id = id;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
