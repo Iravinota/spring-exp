@@ -10,8 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * 测试基础类，其余测试类仅需继承此类即可
  *
- * @author Eric
- * @create 2019-12-25_18:45
+ * @author Eric at 2019-12-25_18:45
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:spring/spring-basic.xml"})

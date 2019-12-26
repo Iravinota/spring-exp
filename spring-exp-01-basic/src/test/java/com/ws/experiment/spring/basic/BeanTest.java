@@ -8,8 +8,7 @@ import static org.junit.Assert.*;
 /**
  * BeanTest
  *
- * @author Eric
- * @create 2019-12-25_19:10
+ * @author Eric at 2019-12-25_19:10
  */
 public class BeanTest extends SpringTestBase {
 
