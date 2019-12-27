@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--引入属性文件-->
+    <context:property-placeholder location="classpath:properties/datasource.properties" />
+
+    <!--配置数据源 并 初始化数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.h2.driver}" />
+        <property name="url" value="${db.h2.url}" />
+    </bean>
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="sql/ddl.sql"/>
+        <jdbc:script location="sql/dml.sql"/>
+    </jdbc:initialize-database>
+
+    <!--也可以直接使用内置数据库-->
+<!--    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="sql/ddl.sql" />
+        <jdbc:script location="sql/dml.sql" />
+    </jdbc:embedded-database>-->
+
+    <!--使用mybatis操作数据源-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+    </bean>
+
+    <!--创建mapper-->
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.ws.experiment.spring.mybatis.mapper.UserMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+    <!--事务封装-->
+    <bean id="userDao" class="com.ws.experiment.spring.mybatis.dao.UserDao">
+        <property name="userMapper" ref="userMapper" />
+    </bean>
+
+    <!--对事务的支持-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>
