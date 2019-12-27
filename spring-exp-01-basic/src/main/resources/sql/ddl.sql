@@ -1,3 +1,5 @@
+drop table if exists user;
+
 CREATE TABLE user (
   id integer,
   name varchar2(100),

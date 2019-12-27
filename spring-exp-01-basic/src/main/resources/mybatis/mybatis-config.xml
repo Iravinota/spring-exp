@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <mappers>
+        <!--
+        com.ws.experiment.spring.basic.db.mybatis.mapper.UserMapper.java
+        和
+        com.ws.experiment.spring.basic.db.mybatis.mapper.UserMapper.xml
+        自动匹配-->
+        <mapper class="com.ws.experiment.spring.mybatis.mapper.UserMapper" />
+    </mappers>
+</configuration>

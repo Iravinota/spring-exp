@@ -1,4 +1,4 @@
-package com.ws.experiment.spring.basic.db;
+package com.ws.experiment.spring.db;
 
 import com.ws.experiment.spring.basic.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,7 +16,8 @@ import java.util.List;
  */
 public class MainDB {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/db/datasource.xml");
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("spring/db/datasource.xml");
 
         JdbcTemplate template = context.getBean("jdbcTemplate", JdbcTemplate.class);
         String sql = "select * from user";
