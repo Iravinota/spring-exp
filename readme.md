@@ -18,4 +18,8 @@ spring基础配置开发
 
 ## 2. spring-exp-02-mvc
 
-spring-mvc工程
+spring-mvc工程，使用注解配置方式
+
+## 3. spring-exp-03-mvc-xml
+
+spring-mvc工程，使用xml配置方式

@@ -14,12 +14,10 @@ import java.sql.SQLException;
  *
  * @author Eric at 2019-12-27_18:17
  */
-@Component
 public class UserService {
 
     private JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
