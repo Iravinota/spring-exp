@@ -22,7 +22,6 @@ public class UserController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-    @Resource
     private UserService userService;
 
     @Autowired
@@ -34,7 +33,9 @@ public class UserController {
     public String showUser(Model model) {
         LOGGER.info("In showUser() function");
         User user = userService.getById(1);
+        LOGGER.info(user.toString());
         model.addAttribute("user", user);
+        model.addAttribute("k1", "v1");
         return "showUser";
     }
 }
