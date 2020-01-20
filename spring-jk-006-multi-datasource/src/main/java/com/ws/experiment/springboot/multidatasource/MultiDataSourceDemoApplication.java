@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
- * MultiDataSourceDemoApplication
+ * 去掉自动jdbc配置，手动对datasource进行配置
  *
  * @author Eric
  * @create 2020-01-02_19:36
@@ -31,8 +31,10 @@ public class MultiDataSourceDemoApplication {
         SpringApplication.run(MultiDataSourceDemoApplication.class, args);
     }
 
+    // foo datasource ------- begin
+
     @Bean
-    @ConfigurationProperties("foo.datasource")
+    @ConfigurationProperties("foo.datasource")  // 明确绑定一个配置项
     public DataSourceProperties fooDataSourceProperties() {
         return new DataSourceProperties();
     }
@@ -40,7 +42,7 @@ public class MultiDataSourceDemoApplication {
     @Bean
     public DataSource fooDataSource() {
         DataSourceProperties dataSourceProperties = fooDataSourceProperties();
-        log.info("foo datasource: {}", dataSourceProperties.getUrl());
+        log.info(">>> foo datasource: {}", dataSourceProperties.getUrl());
         return dataSourceProperties.initializeDataSourceBuilder().build();
     }
 
@@ -50,16 +52,22 @@ public class MultiDataSourceDemoApplication {
         return new DataSourceTransactionManager(fooDataSource);
     }
 
+    // foo datasource ------- end
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    // bar datasource ------- begin
+
     @Bean
     @ConfigurationProperties("bar.datasource")
-    public DataSourceProperties barDataSourceProperteis() {
+    public DataSourceProperties barDataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Bean
     public DataSource barDataSource() {
-        DataSourceProperties properties = barDataSourceProperteis();
-        log.info("bar datasource: {}", properties.getUrl());
+        DataSourceProperties properties = barDataSourceProperties();
+        log.info(">>> bar datasource: {}", properties.getUrl());
         return properties.initializeDataSourceBuilder().build();
     }
 
@@ -68,4 +76,6 @@ public class MultiDataSourceDemoApplication {
     public PlatformTransactionManager barTxManager(DataSource barDataSource) {
         return new DataSourceTransactionManager(barDataSource);
     }
+
+    // bar datasource ------- end
 }
