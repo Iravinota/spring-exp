@@ -11,18 +11,26 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@SpringBootApplication
-@Slf4j
-public class SpringExp05BootBasicApplication implements CommandLineRunner {
+@SpringBootApplication	// spring-boot入口的注解
+@Slf4j					// lombok简化操作
+public class BasicApplication implements CommandLineRunner {	// CommandLineRunner会使spring-boot回调run()函数
 
-	@Autowired
 	private DataSource dataSource;
 
-	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringExp05BootBasicApplication.class, args);
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	@Autowired
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public static void main(String[] args) {	// spring-boot入口
+		SpringApplication.run(BasicApplication.class, args);
 	}
 
 	@Override
@@ -32,14 +40,14 @@ public class SpringExp05BootBasicApplication implements CommandLineRunner {
 	}
 
 	private void showConnections() throws SQLException {
-		log.info("哈哈哈哈哈哈" + dataSource.toString());
+		log.info(">>>> " + dataSource.toString());
 		Connection conn = dataSource.getConnection();
-		log.info("哈哈哈哈哈哈" + conn.toString());
+		log.info(">>>> " + conn.toString());
 		conn.close();
 	}
 
 	private void showData() {
 		jdbcTemplate.queryForList("select * from foo")
-				.forEach(row -> log.info(row.toString()));
+				.forEach(row -> log.info(">>>> " + row.toString()));
 	}
 }

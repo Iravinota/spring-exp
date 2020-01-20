@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ws.experiment</groupId>
-	<artifactId>spring-exp-05-boot-basic</artifactId>
+	<artifactId>spring-jk-005-basic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-exp-05-boot-basic</name>
+	<name>spring-jk-005-basic</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
