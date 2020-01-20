@@ -10,7 +10,7 @@
   - spring-boot-starter-web: web mvc
   - h2: database
   - lombok: tool for log
-- resources/applicaton.properties
+- resources/application.properties
   - foo datasource
   - bar datasource
 - MultiDataSourceDemoApplication
