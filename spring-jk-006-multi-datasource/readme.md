@@ -16,5 +16,5 @@
 - MultiDataSourceDemoApplication
   - @SpringBootApplication中需要去掉自动jdbc配置
   - 在这个类中，我们手动对datasource进行配置
-  - `@ConfigurationProperties("foo.datasource")`指明了需要使用哪个配置项配置数据源
+  - `@ConfigurationProperties("foo.datasource")`指明了需要使用哪个配置项配置数据源。参看[这里](https://www.baeldung.com/properties-with-spring)了解properties更多知识
   - 这里的`DataSourceProperties`类都是spring boot中的类，自动配置的DataSource是`com.zaxxer.hikari.HikariDataSource`
