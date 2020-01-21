@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ws.experiment</groupId>
-    <artifactId>spring-exp-08-druid</artifactId>
+    <artifactId>spring-jk-008-druid</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>

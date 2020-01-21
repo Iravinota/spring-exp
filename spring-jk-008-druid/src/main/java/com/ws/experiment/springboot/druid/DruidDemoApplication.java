@@ -12,18 +12,26 @@ import javax.sql.DataSource;
 /**
  * DruidDemoApplication
  *
- * @author Eric
- * @create 2020-01-02_22:33
+ * @author Eric at 2020-01-02_22:33
  */
 
 @SpringBootApplication
 @Slf4j
 public class DruidDemoApplication implements CommandLineRunner {
-    @Autowired
+
     private DataSource dataSource;
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    @Autowired
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(DruidDemoApplication.class, args);
@@ -31,6 +39,7 @@ public class DruidDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info(">>>>>>" + dataSource.toString());
+        log.info(">>> dataSource: " + dataSource.toString());
+        log.info(">>> jdbcTemplate: " + jdbcTemplate.toString());
     }
 }
