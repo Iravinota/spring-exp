@@ -39,3 +39,12 @@ druid的扩展点特别多，是通过继承`FilterEventAdapter`类来实现的�
 
 - 继承FilterEventAdapter，实现对druid的扩展: `ConnectionLogFilter`
 - resources/META-INF/druid-filter.properties中增加filter配置
+
+## 4. 数据库连接池的考量
+
+- 可靠性
+- 性能
+- 功能
+- 可运维性
+- 可扩展性
+- 其他: 社区是否还活跃
