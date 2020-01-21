@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STOMP</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.js"></script>
+</head>
+<body>
+
+<script>
+    let url = '/stompwebsocket';
+    let sock = new SockJS(url);
+    let stomp = Stomp.over(sock);
+
+    let payload = 'Marco!';
+
+    stomp.connect({}, function (frame) {
+        stomp.subscribe('/topic/shout', function (txt) {
+            // alert(txt);
+        });
+    });
+    
+    function sendMessage() {
+        console.log("send message");
+        stomp.send('/app/marco', {}, payload);
+    }
+
+    function sendMessage2() {
+        console.log("send message to /app/marco2");
+        stomp.send('/app/marco2', {}, payload);
+    }
+</script>
+<button onclick="sendMessage()">Send /app/marco</button>
+<button onclick="sendMessage2()">Send /app/marco2</button>
+</body>
+</html>
