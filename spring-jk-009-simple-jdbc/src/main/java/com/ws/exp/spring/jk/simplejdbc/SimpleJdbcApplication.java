@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import javax.sql.DataSource;
 
 /**
- * SimpleJdbcApplication
+ * 简单的JDBC操作：一条一条插入，或者batch插入
  *
  * @author Eric at 2020-01-21_22:34
  */
@@ -22,10 +22,16 @@ import javax.sql.DataSource;
 public class SimpleJdbcApplication implements CommandLineRunner {
 
     private FooDao fooDao;
+    private BatchFooDao batchFooDao;
 
     @Autowired
     public void setFooDao(FooDao fooDao) {
         this.fooDao = fooDao;
+    }
+
+    @Autowired
+    public void setBatchFooDao(BatchFooDao batchFooDao) {
+        this.batchFooDao = batchFooDao;
     }
 
     public static void main(String[] args) {
@@ -46,7 +52,8 @@ public class SimpleJdbcApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        fooDao.insertData();
+//        fooDao.insertData();
+        batchFooDao.batchInsert();
         fooDao.listData();
     }
 }

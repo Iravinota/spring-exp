@@ -29,6 +29,7 @@ public class FooDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // 在SimpleJdbvApplication.java中进行的注入
     @Autowired
     public void setSimpleJdbcInsert(SimpleJdbcInsert simpleJdbcInsert) {
         this.simpleJdbcInsert = simpleJdbcInsert;

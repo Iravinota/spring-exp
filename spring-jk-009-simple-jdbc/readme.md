@@ -9,7 +9,8 @@ spring boot支持的简单的jdbc操作
   - h2
   - lombok
   - spring-boot-starter-test: 测试
-- 
+- FooDao:
+  - SimpleJdbcInsert: 更方便使用jdbc insert的辅助类
 
 ## 2. spring中通过注解定义bean
 
