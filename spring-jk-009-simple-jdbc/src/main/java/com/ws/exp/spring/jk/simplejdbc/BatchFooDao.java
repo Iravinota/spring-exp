@@ -36,11 +36,15 @@ public class BatchFooDao {
     public void batchInsert() {
         jdbcTemplate.batchUpdate("INSERT INTO FOO (BAR) VALUES (?)",
                 new BatchPreparedStatementSetter() {
+
+                    // i=0, 1, ..., getBatchSize()
+                    // ps=SQL
                     @Override
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
                         ps.setString(1, "b-" + i);
                     }
 
+                    // 此次批量插入多少数据
                     @Override
                     public int getBatchSize() {
                         return 2;

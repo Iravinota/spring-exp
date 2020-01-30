@@ -19,3 +19,7 @@ spring boot支持的简单的jdbc操作
 - @Service: 业务服务
 - @Controller: spring mvc
 - @RestController: RESTful服务
+
+## 3. JdbcTemplate.batchUpdate()批量操作
+
+- 语句被编译一次，执行多次
