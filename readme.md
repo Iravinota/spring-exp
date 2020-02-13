@@ -1,25 +1,22 @@
-# Spring Experiment
+# 极客时间-玩转Spring全家桶
 
-spring基础配置开发
+根据课程《[极客时间-玩转Spring全家桶](https://time.geekbang.org/course/detail/156-80200)》，学习并实现其功能，并记录知识点。
 
-## 1. spring-exp-01-basic
-
-基于maven构建一个简单的Spring工程，包括slf4j, log4j2, mybatis.
-
-- IDEA->project setting中，配置facet为spring，可以使用Spring相关IDE
-- com.ws.experiment.spring.basic中的类，和resources/spring/spring-basic.xml，以及test/*/com.ws.experiment.spring.basic中的配置文件，这些是以XML进行Spring开发的基础配置
-    - spring/spring-basic.xml是spring配置文件
-    - Main.java输出bean相关信息
-    - BeanTest输出测试信息
-- com.ws.experiment.spring.annotation中的类和测试文件，是使用annotation方式进行spring开发的配置
-- com.ws.experiment.spring.db中是普通数据库相关操作
-- com.ws.experiment.spring.mybatis中是使用mybatis对数据库进行相关操作
-- maven窗口执行clean清理项目，执行test测试项目，执行install编译并把jar包放到.m2仓库中
-
-## 2. spring-exp-02-mvc
-
-spring-mvc工程，使用注解配置方式
-
-## 3. spring-exp-03-mvc-xml
-
-spring-mvc工程，使用xml配置方式
+1. **工作目录**：E:\study\20200213-极客时间-玩转Spring全家桶
+2. **程序目录**：E:\pro\javapro\02-experiment\spring-exp
+3. **参考资料**：E:\pro\javapro\03-stars\geektime-spring-family-master, <https://github.com/geektime-geekbang/geektime-spring-family>
+7. **项目文档**：E:\study\20200213-极客时间-玩转Spring全家桶
+3. 虚拟机：无
+4. XShell地址：无
+5. 虚拟机设置：无
+6. Win10和Linux 共享目录：无
+7. [GitHub地址](https://github.com/Iravinota/spring-exp)
+8. 开发工具：IDEA
+9. 编译工具：IDEA
+10. 输出文档：
+    - [IDEA中运行tomcat服务器时console中显示乱码的解决方法](https://segmentfault.com/n/1330000021393660)
+    - [idea下使用Maven 的test命令乱码](https://segmentfault.com/n/1330000021401300)
+    - [解决IDEA中module名和目录名不一致的情况](https://segmentfault.com/n/1330000021401486)
+    - [在Spring中使用properties](https://segmentfault.com/n/1330000021412648)
+    - [IDEA中配置module的Language Level不生效问题](https://segmentfault.com/n/1330000021460764)
+    - [使用IDEA创建spring-boot的maven module](https://www.jianshu.com/p/2acd711356ce)
