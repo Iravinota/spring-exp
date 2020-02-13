@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {"name": "foo.datasource.url", "type": "java.lang.String"},
+    {"name": "foo.datasource.username", "type": "java.lang.String"},
+    {"name": "foo.datasource.password", "type": "java.lang.String"},
+    {"name": "bar.datasource.url", "type": "java.lang.String"},
+    {"name": "bar.datasource.username", "type": "java.lang.String"},
+    {"name": "bar.datasource.password", "type": "java.lang.String"}
+  ]
+}
